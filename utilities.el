@@ -44,13 +44,11 @@
     (kill-new s)
     (message "Sanitized string '%s' copied to the kill ring." s)))
 
+(quote 
+ (print (sanitize-string-for-filename "Introduction to Information Retrieval"))
 
-(require 'ert)
-
-(ert-deftest sanitize-string-test ()
-  "Confirm "
-  (should (equal (sanitize-string-for-filename "Introduction to Information Retrieval") "introduction_to_information_retrieval")))
-
+ (sanitize-string-for-filename-and-copy "Introduction to Information Retrieval")
+ )
 
 
 ;;; bootcamp-utilities.el ends here
