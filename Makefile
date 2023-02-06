@@ -8,13 +8,11 @@ install:
 
 test:
 	@echo "Running tests for bootcamp-utilities.el..."
-	@emacs -batch -l ert -l bootcamp-utilities.el -f ert-run-tests-batch-and-exit
+	@emacs -batch -l ert -l bootcamp-utilities.el -f ert-run-tests-batch-and-exit output.log
 
 clean:
 	@echo "Cleaning up generated files..."
-	@rm -f *~
-
-
+	@rm -f *~ output.log
 
 deps:
 	@./scripts/deps.sh

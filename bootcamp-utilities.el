@@ -47,10 +47,15 @@
 
 (require 'ert)
 
-(ert-deftest sanitize-string-test ()
-  "Confirm "
-  (should (equal (sanitize-string-for-filename "Introduction to Information Retrieval") "introduction_to_information_retrieval")))
-
+(ert-deftest test-sanitize-string-for-filename ()
+  "Tests for `sanitize-string-for-filename` function."
+  (should (equal (sanitize-string-for-filename "Introduction to Information Retrieval") "introduction_to_information_retrieval"))
+  (should (equal (sanitize-string-for-filename "Hello World") "hello_world"))
+  (should (equal (sanitize-string-for-filename "123Hello World456") "123hello_world456"))
+  ;;   (should (equal (sanitize-string-for-filename "!@#$%^&*()_+-=[]{};':\"<>,.?/|\\") "")))
+  ;;   (should (equal (sanitize-string-for-filename " ") "_"))
+  (should (equal (sanitize-string-for-filename " ") "_")))
+  
 
 
 ;;; bootcamp-utilities.el ends here
