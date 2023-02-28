@@ -45,6 +45,14 @@
     (message "Sanitized string '%s' copied to the kill ring." s)))
 
 
+(defun new-entry ()
+  "Create a new entry in the current file, using the current date and time."
+  (interactive)
+  (let ((date-time (format-time-string "%Y-%m-%d %H:%M:%S")))
+    (end-of-buffer)
+    (insert (concat "\n\n* " date-time "\n\n"))))
+
+
 (require 'ert)
 
 (ert-deftest test-sanitize-string-for-filename ()
